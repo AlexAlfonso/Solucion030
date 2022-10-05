@@ -157,7 +157,14 @@
     <Content Include="Content\images\blog\blog-single-post.jpg" />
     <Content Include="Content\images\blog\blog-single.jpg" />
     <Content Include="Content\images\blog\user.jpg" />
+    <Content Include="Content\images\capitanamarvel.jpg" />
+    <Content Include="Content\images\capitanamerica.jpg" />
+    <Content Include="Content\images\economia.jpg" />
+    <Content Include="Content\images\economia.png" />
     <Content Include="Content\images\favicon.png" />
+    <Content Include="Content\images\guardianes.jpg" />
+    <Content Include="Content\images\hulk.jpg" />
+    <Content Include="Content\images\ironman.jpg" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\logos\our-client.jpg" />
     <Content Include="Content\images\portfolio\portfolio-1.jpg" />
@@ -178,6 +185,7 @@
     <Content Include="Content\images\team\team-2.jpg" />
     <Content Include="Content\images\team\team-3.jpg" />
     <Content Include="Content\images\team\team-4.jpg" />
+    <Content Include="Content\images\thor.jpg" />
     <Content Include="Content\plugins\animate-css\animate.css" />
     <Content Include="Content\plugins\bootstrap\bootstrap.min.css" />
     <Content Include="Content\plugins\bootstrap\bootstrap.min.js" />

@@ -41,27 +41,50 @@ namespace _01_Api.Controllers
 
         // GET: api/peliculas/5
         [ResponseType(typeof(pelicula))]
-        public IHttpActionResult Getpelicula(int id)
+        public IHttpActionResult GetEmpleado(int? id, int? siguiente)
         {
-            pelicula peliculaTabla = db.pelicula.Find(id);
+
+            pelicula peliculaTabla = null;
+            if (siguiente == null)
+            {
+                peliculaTabla = db.pelicula.Where(x => x.id == id.Value).FirstOrDefault();
+            }
+            else
+            {
+                if (siguiente.Value == 1)
+                {
+                    peliculaTabla = db.pelicula.Where(x => x.id > id.Value).FirstOrDefault();
+                }
+                else
+                {
+                    IList<pelicula> PeliculasTablas = db.pelicula.Where(x => x.id < id.Value).ToList();
+                    if (PeliculasTablas != null && PeliculasTablas.Count() > 0)
+                    {
+                        int? idpelicula = PeliculasTablas.Max(x => x.id);
+                        peliculaTabla = db.pelicula.Where(x => x.id == idpelicula.Value).FirstOrDefault();
+                    }
+                }
+            }
             if (peliculaTabla == null)
             {
-                return NotFound();
+                peliculaTabla = db.pelicula.Where(x => x.id == id.Value).FirstOrDefault();
             }
-            pelicula Pelicula = new pelicula();
-            Pelicula.titulo = peliculaTabla.titulo;
-            Pelicula.añolanzamiento = peliculaTabla.añolanzamiento;
-            Pelicula.sinopsis = peliculaTabla.sinopsis;
-            Pelicula.premios = peliculaTabla.premios;
-            Pelicula.duracion = peliculaTabla.duracion;
-            Pelicula.clasificacion = peliculaTabla.clasificacion;
-            Pelicula.presupuesto = peliculaTabla.presupuesto;
-            Pelicula.recaudacion = peliculaTabla.recaudacion;
+            pelicula miPelicula = new pelicula();
+            miPelicula.titulo = peliculaTabla.titulo;
+            miPelicula.añolanzamiento = peliculaTabla.añolanzamiento;
+            miPelicula.sinopsis = peliculaTabla.sinopsis;
+            miPelicula.premios = peliculaTabla.premios;
+            miPelicula.duracion = peliculaTabla.duracion;
+            miPelicula.clasificacion = peliculaTabla.clasificacion;
+            miPelicula.presupuesto = peliculaTabla.presupuesto;
+            miPelicula.recaudacion = peliculaTabla.recaudacion;
+
+            pelicula otraPelicula = miPelicula;
+
+            return Ok(miPelicula);
 
 
-            return Ok(Pelicula);
         }
-
 
         // PUT: api/peliculas/5
         [ResponseType(typeof(void))]
