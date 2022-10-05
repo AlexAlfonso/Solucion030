@@ -10,67 +10,33 @@ using _04_Data.Datos;
 
 namespace _00_Mvc.Controllers
 {
-    public class peliculaController : Controller
+    public class PeliculaMvcController : Controller
     {
         private MarvelDbContext db = new MarvelDbContext();
 
-        // GET: pelicula
+        // GET: PeliculaMvc
         public ActionResult Index()
         {
             var pelicula = db.pelicula.Include(p => p.actor).Include(p => p.companyia).Include(p => p.director).Include(p => p.genero);
             return View(pelicula.ToList());
         }
 
-        // GET: pelicula/Details/5
-        //public ActionResult Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    pelicula pelicula = db.pelicula.Find(id);
-        //    if (pelicula == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(pelicula);
-        //}
-        public ActionResult Details(int? id, bool? siguiente)
+        // GET: PeliculaMvc/Details/5
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            pelicula pelicula = null;
-            if (siguiente == null)
-            {
-                pelicula = db.pelicula.Where(x => x.id == id.Value).FirstOrDefault();
-            }
-            else
-            {
-                if (siguiente.Value == true)
-                {
-                    pelicula = db.pelicula.Where(x => x.id > id.Value).FirstOrDefault();
-                }
-                else
-                {
-                    IList<pelicula> peliculas = db.pelicula.Where(x => x.id < id.Value).ToList();
-                    if (peliculas != null && peliculas.Count() > 0)
-                    {
-                        int? idpelicula = peliculas.Max(x => x.id);
-                        pelicula = db.pelicula.Where(x => x.id == idpelicula.Value).FirstOrDefault();
-                    }
-                }
-            }
+            pelicula pelicula = db.pelicula.Find(id);
             if (pelicula == null)
             {
-                pelicula = db.pelicula.Where(x => x.id == id.Value).FirstOrDefault();
+                return HttpNotFound();
             }
             return View(pelicula);
         }
 
-
-        // GET: pelicula/Create
+        // GET: PeliculaMvc/Create
         public ActionResult Create()
         {
             ViewBag.id_actor = new SelectList(db.actor, "id", "actor_principal");
@@ -80,7 +46,7 @@ namespace _00_Mvc.Controllers
             return View();
         }
 
-        // POST: pelicula/Create
+        // POST: PeliculaMvc/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -101,7 +67,7 @@ namespace _00_Mvc.Controllers
             return View(pelicula);
         }
 
-        // GET: pelicula/Edit/5
+        // GET: PeliculaMvc/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -120,7 +86,7 @@ namespace _00_Mvc.Controllers
             return View(pelicula);
         }
 
-        // POST: pelicula/Edit/5
+        // POST: PeliculaMvc/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -140,7 +106,7 @@ namespace _00_Mvc.Controllers
             return View(pelicula);
         }
 
-        // GET: pelicula/Delete/5
+        // GET: PeliculaMvc/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -155,7 +121,7 @@ namespace _00_Mvc.Controllers
             return View(pelicula);
         }
 
-        // POST: pelicula/Delete/5
+        // POST: PeliculaMvc/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -174,11 +140,5 @@ namespace _00_Mvc.Controllers
             }
             base.Dispose(disposing);
         }
-        [HttpPost]
-        public ActionResult _peliculaPartialView(pelicula Pelicula)
-        {
-            return View("_peliculaPartialView", Pelicula);
-        }
-
     }
 }

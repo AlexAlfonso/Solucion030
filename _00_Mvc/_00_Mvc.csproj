@@ -127,8 +127,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ActorMvcController.cs" />
+    <Compile Include="Controllers\CompanyiaMvcController.cs" />
+    <Compile Include="Controllers\DirectorMvcController.cs" />
+    <Compile Include="Controllers\FraseMvcController.cs" />
+    <Compile Include="Controllers\GeneroMvcController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\peliculaController.cs" />
+    <Compile Include="Controllers\PeliculaMvcController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -274,12 +279,36 @@
     <Content Include="Scripts\plugins\themefisher-font\fonts\themefisher-font.woff" />
     <Content Include="Views\Home\Index - Copia.cshtml" />
     <Content Include="Views\Shared\_Layout - Copia.cshtml" />
-    <Content Include="Views\pelicula\Create.cshtml" />
-    <Content Include="Views\pelicula\Delete.cshtml" />
-    <Content Include="Views\pelicula\Details.cshtml" />
-    <Content Include="Views\pelicula\Edit.cshtml" />
-    <Content Include="Views\pelicula\Index.cshtml" />
-    <Content Include="Views\pelicula\_peliculaPartialView.cshtml" />
+    <Content Include="Views\PeliculaMvc\Create.cshtml" />
+    <Content Include="Views\PeliculaMvc\Delete.cshtml" />
+    <Content Include="Views\PeliculaMvc\Details.cshtml" />
+    <Content Include="Views\PeliculaMvc\Edit.cshtml" />
+    <Content Include="Views\PeliculaMvc\Index.cshtml" />
+    <Content Include="Views\ActorMvc\Create.cshtml" />
+    <Content Include="Views\ActorMvc\Delete.cshtml" />
+    <Content Include="Views\ActorMvc\Details.cshtml" />
+    <Content Include="Views\ActorMvc\Edit.cshtml" />
+    <Content Include="Views\ActorMvc\Index.cshtml" />
+    <Content Include="Views\DirectorMvc\Create.cshtml" />
+    <Content Include="Views\DirectorMvc\Delete.cshtml" />
+    <Content Include="Views\DirectorMvc\Details.cshtml" />
+    <Content Include="Views\DirectorMvc\Edit.cshtml" />
+    <Content Include="Views\DirectorMvc\Index.cshtml" />
+    <Content Include="Views\GeneroMvc\Create.cshtml" />
+    <Content Include="Views\GeneroMvc\Delete.cshtml" />
+    <Content Include="Views\GeneroMvc\Details.cshtml" />
+    <Content Include="Views\GeneroMvc\Edit.cshtml" />
+    <Content Include="Views\GeneroMvc\Index.cshtml" />
+    <Content Include="Views\CompanyiaMvc\Create.cshtml" />
+    <Content Include="Views\CompanyiaMvc\Delete.cshtml" />
+    <Content Include="Views\CompanyiaMvc\Details.cshtml" />
+    <Content Include="Views\CompanyiaMvc\Edit.cshtml" />
+    <Content Include="Views\CompanyiaMvc\Index.cshtml" />
+    <Content Include="Views\FraseMvc\Create.cshtml" />
+    <Content Include="Views\FraseMvc\Delete.cshtml" />
+    <Content Include="Views\FraseMvc\Details.cshtml" />
+    <Content Include="Views\FraseMvc\Edit.cshtml" />
+    <Content Include="Views\FraseMvc\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

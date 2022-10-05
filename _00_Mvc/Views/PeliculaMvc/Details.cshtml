@@ -74,16 +74,41 @@
             @Html.DisplayFor(model => model.recaudacion)
         </dd>
 
-        
+        <dt>
+            @Html.DisplayNameFor(model => model.actor.actor_principal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.actor.actor_principal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.companyia.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.companyia.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.director.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.director.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.genero.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.genero.nombre)
+        </dd>
 
     </dl>
 </div>
-@{
-    string onClickAnterior = "pelicula(" + Model.id + "," + 0 + ")";
-    string onClickSiguiente = "pelicula(" + Model.id + "," + 1 + ")";
-}
-<input type="button" value="Anterior" onclick=@onClickAnterior>
-<input type="button" value="Siguiente" onclick=@onClickSiguiente>
-
-
-
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

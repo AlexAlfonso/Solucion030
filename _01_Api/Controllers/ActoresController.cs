@@ -12,44 +12,44 @@ using _04_Data.Datos;
 
 namespace _01_Api.Controllers
 {
-    public class PeliculasController : ApiController
+    public class ActoresController : ApiController
     {
         private MarvelDbContext db = new MarvelDbContext();
 
-        // GET: api/Peliculas
-        public IQueryable<pelicula> Getpelicula()
+        // GET: api/Actores
+        public IQueryable<actor> Getactor()
         {
-            return db.pelicula;
+            return db.actor;
         }
 
-        // GET: api/Peliculas/5
-        [ResponseType(typeof(pelicula))]
-        public IHttpActionResult Getpelicula(int id)
+        // GET: api/Actores/5
+        [ResponseType(typeof(actor))]
+        public IHttpActionResult Getactor(int id)
         {
-            pelicula pelicula = db.pelicula.Find(id);
-            if (pelicula == null)
+            actor actor = db.actor.Find(id);
+            if (actor == null)
             {
                 return NotFound();
             }
 
-            return Ok(pelicula);
+            return Ok(actor);
         }
 
-        // PUT: api/Peliculas/5
+        // PUT: api/Actores/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult Putpelicula(int id, pelicula pelicula)
+        public IHttpActionResult Putactor(int id, actor actor)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != pelicula.id)
+            if (id != actor.id)
             {
                 return BadRequest();
             }
 
-            db.Entry(pelicula).State = EntityState.Modified;
+            db.Entry(actor).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace _01_Api.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!peliculaExists(id))
+                if (!actorExists(id))
                 {
                     return NotFound();
                 }
@@ -70,35 +70,35 @@ namespace _01_Api.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Peliculas
-        [ResponseType(typeof(pelicula))]
-        public IHttpActionResult Postpelicula(pelicula pelicula)
+        // POST: api/Actores
+        [ResponseType(typeof(actor))]
+        public IHttpActionResult Postactor(actor actor)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.pelicula.Add(pelicula);
+            db.actor.Add(actor);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = pelicula.id }, pelicula);
+            return CreatedAtRoute("DefaultApi", new { id = actor.id }, actor);
         }
 
-        // DELETE: api/Peliculas/5
-        [ResponseType(typeof(pelicula))]
-        public IHttpActionResult Deletepelicula(int id)
+        // DELETE: api/Actores/5
+        [ResponseType(typeof(actor))]
+        public IHttpActionResult Deleteactor(int id)
         {
-            pelicula pelicula = db.pelicula.Find(id);
-            if (pelicula == null)
+            actor actor = db.actor.Find(id);
+            if (actor == null)
             {
                 return NotFound();
             }
 
-            db.pelicula.Remove(pelicula);
+            db.actor.Remove(actor);
             db.SaveChanges();
 
-            return Ok(pelicula);
+            return Ok(actor);
         }
 
         protected override void Dispose(bool disposing)
@@ -110,9 +110,9 @@ namespace _01_Api.Controllers
             base.Dispose(disposing);
         }
 
-        private bool peliculaExists(int id)
+        private bool actorExists(int id)
         {
-            return db.pelicula.Count(e => e.id == id) > 0;
+            return db.actor.Count(e => e.id == id) > 0;
         }
     }
 }

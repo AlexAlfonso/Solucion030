@@ -1,0 +1,66 @@
+﻿@model _04_Data.Datos.director
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>director</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_nacimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_nacimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.residencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.residencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.premios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.premios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.distinciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.distinciones)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.foto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.foto)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,42 @@
+﻿@model _04_Data.Datos.frase
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>frase</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.frase1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.frase1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.actor.actor_principal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.actor.actor_principal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pelicula.titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pelicula.titulo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

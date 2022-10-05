@@ -12,44 +12,44 @@ using _04_Data.Datos;
 
 namespace _01_Api.Controllers
 {
-    public class PeliculasController : ApiController
+    public class GenerosController : ApiController
     {
         private MarvelDbContext db = new MarvelDbContext();
 
-        // GET: api/Peliculas
-        public IQueryable<pelicula> Getpelicula()
+        // GET: api/Generos
+        public IQueryable<genero> Getgenero()
         {
-            return db.pelicula;
+            return db.genero;
         }
 
-        // GET: api/Peliculas/5
-        [ResponseType(typeof(pelicula))]
-        public IHttpActionResult Getpelicula(int id)
+        // GET: api/Generos/5
+        [ResponseType(typeof(genero))]
+        public IHttpActionResult Getgenero(int id)
         {
-            pelicula pelicula = db.pelicula.Find(id);
-            if (pelicula == null)
+            genero genero = db.genero.Find(id);
+            if (genero == null)
             {
                 return NotFound();
             }
 
-            return Ok(pelicula);
+            return Ok(genero);
         }
 
-        // PUT: api/Peliculas/5
+        // PUT: api/Generos/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult Putpelicula(int id, pelicula pelicula)
+        public IHttpActionResult Putgenero(int id, genero genero)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != pelicula.id)
+            if (id != genero.id)
             {
                 return BadRequest();
             }
 
-            db.Entry(pelicula).State = EntityState.Modified;
+            db.Entry(genero).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace _01_Api.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!peliculaExists(id))
+                if (!generoExists(id))
                 {
                     return NotFound();
                 }
@@ -70,35 +70,35 @@ namespace _01_Api.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Peliculas
-        [ResponseType(typeof(pelicula))]
-        public IHttpActionResult Postpelicula(pelicula pelicula)
+        // POST: api/Generos
+        [ResponseType(typeof(genero))]
+        public IHttpActionResult Postgenero(genero genero)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.pelicula.Add(pelicula);
+            db.genero.Add(genero);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = pelicula.id }, pelicula);
+            return CreatedAtRoute("DefaultApi", new { id = genero.id }, genero);
         }
 
-        // DELETE: api/Peliculas/5
-        [ResponseType(typeof(pelicula))]
-        public IHttpActionResult Deletepelicula(int id)
+        // DELETE: api/Generos/5
+        [ResponseType(typeof(genero))]
+        public IHttpActionResult Deletegenero(int id)
         {
-            pelicula pelicula = db.pelicula.Find(id);
-            if (pelicula == null)
+            genero genero = db.genero.Find(id);
+            if (genero == null)
             {
                 return NotFound();
             }
 
-            db.pelicula.Remove(pelicula);
+            db.genero.Remove(genero);
             db.SaveChanges();
 
-            return Ok(pelicula);
+            return Ok(genero);
         }
 
         protected override void Dispose(bool disposing)
@@ -110,9 +110,9 @@ namespace _01_Api.Controllers
             base.Dispose(disposing);
         }
 
-        private bool peliculaExists(int id)
+        private bool generoExists(int id)
         {
-            return db.pelicula.Count(e => e.id == id) > 0;
+            return db.genero.Count(e => e.id == id) > 0;
         }
     }
 }
