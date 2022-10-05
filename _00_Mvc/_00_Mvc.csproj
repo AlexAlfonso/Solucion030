@@ -309,6 +309,7 @@
     <Content Include="Views\FraseMvc\Details.cshtml" />
     <Content Include="Views\FraseMvc\Edit.cshtml" />
     <Content Include="Views\FraseMvc\Index.cshtml" />
+    <Content Include="Views\PeliculaMvc\_PeliculaMvcPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -140,5 +140,12 @@ namespace _00_Mvc.Controllers
             }
             base.Dispose(disposing);
         }
+        [HttpPost]
+        //[ValidateInput(false)]
+        public ActionResult _PeliculaMvcPartialView(pelicula pelicula)
+        {
+            return View("_PeliculaMvcPartialView", pelicula);
+        }
+
     }
 }
